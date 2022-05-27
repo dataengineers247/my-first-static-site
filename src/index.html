@@ -12,7 +12,13 @@
   <main>
     <h1>Vanilla JavaScript App</h1>
     <p> Hello Every One</p>
+    <p> Loading message from the API: <b id = "name"> </b> </p>
   </main>
 </body>
-
+<script>
+  (async function(){
+  let { text } = await(await fetch(`/api/GetMessage3`)).json();
+  document.querySelector('#name').textContent=text;
+  }())
+</script>
 </html>
